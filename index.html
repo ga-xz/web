@@ -1,53 +1,346 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>WebCatX</title>
-          <style>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#05ad40" />
+    <title>Earth岸地球</title>
+  <link rel="shortcut icon" href="img/icon.jpg" type="image/x-icon">
+  <script src="Cesium/Cesium.js"></script>
+  <script src="jquery/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="Cesium/Widgets/widgets.css">
+  <link rel="stylesheet" href="css/123.css">
+  <link rel="stylesheet" href="css/222.css">
+  <link rel="stylesheet" href="css/earths.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <style>
+    html,
     body {
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 20px;
-    }
-    .card {
-      margin-bottom: 10px;
-    }
-    .input-group {
-      margin-bottom: 10px;
-    }
-    .input-group label {
-      display: block;
-    }
-    .input-group input {
+      margin: 0;
+      padding: 0;
       width: 100%;
-      padding: 5px;
-      border: 1px solid #ccc;
+      height: 100%;
+      overflow: hidden;
+      font-family:'Helvetica','Droidsansfallback','Heiti SC';
+      
     }
-    .message {
-      font-weight: bold;
-      margin-top: 10px;
+
+    div {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      text-anchor: none;
     }
+    #cesiumContainer {
+      width: 100%;
+      height: 100%;
+    }
+    @keyframes spin {
+    0% { 
+      transform: rotate(0deg); 
+    }
+
+    50% { 
+      transform: rotate(260deg); 
+    }
+    100% { 
+      transform: rotate(360deg); 
+    }
+  }
+
+  .loading-spinner {
+    width: 35px;
+    height: 35px;
+    border: 5px solid #003cff;
+    border-top-color: rgba(204, 204, 204, 0);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: fixed;
+    z-index: 99999;
+    top: 55%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+}
   </style>
 </head>
-<body>
-    
-    <div class="card">
-      <h2>卡密认证</h2>
-      <div class="input-group">
-        <label for="inputCard">输入卡密:</label>
-        <input type="text" id="inputCard">
-      </div>
-      <button onclick="validateCard()">验证</button>
-      <p id="validationMessage"></p>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
-  <script src="script.js"></script>
 
+<body>
+<!-- 开头图片 -->
+  <div class="zhuye" >
+    <img src="img/Rv.jpg" class="zhuye1">
+    <span class="zi1">Check Earth</span>
+    <div class="loading-spinner"></div>
+  </div> 
+  
+  
+
+  <div id="cesiumContainer">
+    <!-- <div> -->
+    
+    <!-- 左边导航栏 -->
+    <div class="box">
+      <!-- 图层 -->
+      <div id="tuchen">
+           <img src="img/T1.svg" class="t1">
+      </div>
+
+      <!-- 支持一下 -->
+      <div id="zhichi">
+        <div class="zhic1">
+          <div class="rmb">¥</div>
+          
+        </div>
+      </div>
+
+      <!-- 多球模式 -->
+        <div id="a">
+          <div class="duo"></div>
+          <div class="duo1"></div>
+        </div>
+        
+        <!-- 作者 -->
+        <div id="zuoze">
+         <!-- <div class="zuoze1"></div>-->
+         <img src="img/Wi.svg" class="wi"/>
+        </div>
+
+        <!-- 版本 -->
+        <div id="banben">
+        </div>
+    </div>
+     
+    <!-- 多球显示 -->
+    <!-- <iframe src="earths.html" class="iframedq">
+
+    </iframe>
+    <div class="ifdq">
+      <div id="abou"></div>
+    <div id="cesiumContainer1"></div>
+    <div id="cesiumContainer2"></div>
+    </div>-->
+
+    <!-- 版本样式 -->
+    
+    <div class="babe">
+         <p>更新日志</p>
+         <div id="babe2">
+           <img src="img/hP.png" class="hp"/>
+    </div>
+       <div class="banben">
+         <ul>
+           <li>v1.1.2</li>
+           1.【新增】图源切换
+           <br>
+           2.【新增】更新日志显示时间
+           <br>
+           3.【优化】一些体验细节
+           <br>
+           4.【修复】一些已知问题
+           <br>
+     2023/10/29  03:42:38
+         </ul>
+         
+         <ul>
+           <li>v1.1.1</li>
+           1.【新增】定位功能
+           <br>
+           2.【去除】多球模式
+           <br>
+           3.【优化】一些显示效果
+           <br>
+           4.【修复】一些已知bug
+           <br>
+      2023/10/23  03:21:12
+         </ul>
+         
+         <ul>
+       	<li>v1.1.0</li>
+           1.【优化】我的logo、弹窗提示、已知bug
+           <br>
+           2.【新增】定位logo
+           <br>
+           3.【修复】已知bug
+           <br>
+      2023/10/12  01:32:41
+       </ul>
+         
+        <ul >
+          <li>v1.0.9</li>
+            1.【优化】显示界面
+            <br>
+            2.【图层】换成中科星图
+            <br>
+            3.【新增】更新日志
+            <br>
+      2023/9/26  00:12/46
+        </ul>
+      
+        <ul>
+          <li>v1.0.8</li>
+            1.【新增】个人logo
+            <br>
+            2.【新增】街景小人
+            <br>
+            3.【新增】版本信息
+            <br>
+            4.【新增】提示弹窗
+            <br>
+            5.【新增】开头显示图
+          <br>
+      2023/9/22  02:02:25
+        </ul>
+        </div>
+    </div>
+
+    <!-- 支持弹窗 -->
+    <div class="boxv1">
+      <!-- <p class="boxv2">支持一下，不容易</p> -->
+      <!-- 微信收款码 -->
+      <div class="wx">
+        <img src="img/wxzf.jpg" width="268" height="380">
+      </div>
+      <!-- 支付宝收款码 -->
+      <div class="zfb">
+        <img src="img/zfbzf.jpg" width="268" height="390">
+      </div>
+      <!-- 关闭 -->
+      <div id="guanbi">
+        <div class="cha">Χ</div>
+      </div>
+      <!-- 点击 -->
+      <div class="butt">
+        <!-- 微信 -->
+        <button id="wxjm">
+          <span class="wxjm1">微信</span>
+        </button>
+        <!-- 支付宝 -->
+        <button id="zfbjm">
+          <span class="zfbjm1">支付宝</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 作者介绍 -->
+    <!-- <div class="zejs">
+
+    </div> -->
+
+    <!-- 提示框 -->
+    <div class="tiook">
+     <div class="tishi">
+      <p class="ti1">提示</p> 
+       <ul class="nei">此功能暂时不可用</ul>
+        <div id="ok1">
+          <span class="ok1">确定</span>
+        </div>
+     </div>
+    </div>
+
+    <!-- 界面 -->
+    <div class="tool">
+      <!--图层-->
+      <div class="box1">
+        <p class="p1">图层</p>
+        <div id="fh">
+          <!-- <img src="img/fh.png">  -->
+        </div>
+      </div>
+      <!-- 路网 -->
+      <div class="luwang">
+        <!-- 开关 -->
+        <div>
+          <label for="switch">
+            <input type="checkbox" id="checkbox">
+          </label>
+        </div>
+        <p class="p">路网</p>
+      </div>
+      <!-- 影像切换 -->
+      <div class="yinxi">
+        图源
+      </div>
+      <div class="iger">
+        <!-- 中科星图 -->
+        <div id="star">
+          <img src="img/wei/starmap.png" class="map">
+          <span class="span">中科星图</span>
+        </div>
+        <br>
+        <!-- Google卫星图 -->
+        <!--<div id="google">
+          <img src="img/wei/google.png" class="map">
+          <span class="span">Google卫星图</span>
+        </div>
+        <br>-->
+        <!-- ArcGis卫星图 -->
+        <div id="arcgis">
+          <img src="img/wei/arcgis.png" class="map">
+          <span class="span">ArcGis卫星图</span>
+        </div>
+        <br>
+        <!-- MapBox卫星图 -->
+        <div id="mapbox">
+          <img src="img/wei/mapbox.png" class="map">
+          <span class="span">Mapbox卫星图</span>
+        </div>
+        <br>
+      </div>
+    </div>
+    <!-- 底部放大和缩小 -->
+    <div class="dibu">
+      <button id="zoomIn">
+        <div class="zoom"></div>
+      </button>
+      <button id="zoomOut">
+        <div class="zoomout"></div>
+      </button>
+    </div>
+    <!-- 指南针 -->
+    <div id="compassContainer" class="custom">
+      <img src="img/compass.svg" class="svg">
+    </div>
+    <!-- 街景小人 -->
+    <div id="pegman">
+        <img src="img/pegman.svg"  id="svgxr">
+    </div>
+    <!-- 定位 -->
+    <div id="m3gps">
+        <img src="img/M3.svg" class="m3"/>
+  </div>
+
+  </div>
+
+  <script src="js/123.js"></script>
+  <script src="js/112.js"></script>
+  <script src="js/111.js"></script>
+
+  <script>
+    document.onkeydown = function () {
+      if (window.event && window.event.keyCode == 123) {
+        event.keyCode = 0;
+        event.returnValue = false;
+      }
+      if (window.event && window.event.keyCode == 13) {
+        window.event.keyCode = 505;
+      }
+      if (window.event && window.event.keyCode == 8) {
+        alert(str + "\n请使用Del键进行字符的删除操作");
+        window.event.returnValue = false;
+      }
+    }
+    var zhu = document.querySelector(".zhuye");
+    setTimeout(function(){
+        zhu.style.display = "none";
+    },5000);
+  </script>
+  <script src="js/earths.js"></script>
+   <script src="js/earths1.js"></script>
 </body>
+
 </html>

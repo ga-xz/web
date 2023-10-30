@@ -1,0 +1,324 @@
+/*支持*/
+#zhichi {
+    width: 25px;
+    height: 25px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    top: 18vh;
+    left: 5px;
+}
+
+#zhichi,
+.rmb,
+.zc1,
+#guanbi:hover {
+    cursor: pointer;
+}
+
+.rmb {
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.zc1 {
+    font-size: 15px;
+    color: #ffffff;
+    position: absolute;
+    top: 34px;
+    font-family:'Helvetica','Droidsansfallback','Heiti SC';
+}
+
+/* 收款界面 */
+.boxv1 {
+    display: none;
+    width: 330px;
+    height: 440px;
+    background-color: #ece8e8;
+    position: fixed;
+    z-index: 25;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 0px;
+    box-shadow: 0px 0px 15px rgb(209, 209, 209);
+    border-radius: 5px;
+    border: 1px solid rgba(43, 41, 41, 0.658);
+}
+
+.boxv1::before{
+    content: '支持一下，开发不容易';
+    font-size: 20px;
+    color: red;
+   /* box-shadow: 0 0 6px 2px rgba(132, 199, 105, 0.466);*/
+    background-color: rgba(216, 221, 138, 0.32);
+    border-radius: 5px;
+    position: absolute;
+    top: 8px;
+    left: 60px;
+    font-family:'Helvetica','Droidsansfallback','Heiti SC';
+}
+
+img {
+    /*box-shadow: 0px 0px 15px rgba(77, 75, 75, 0.808);*/
+    border-radius: 5px;
+    border: 1px solid rgba(179, 179, 179, 0.829);
+}
+
+.wx {
+    position: absolute;
+    left: 30px;
+    top: 8vh;
+}
+
+.zfb {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 7.5vh;
+}
+/*微信或支付宝按钮*/
+#guanbi {
+    width: 25px;
+    height: 25px;
+    /* border-radius: 50%;
+    border: 1px solid #050505; */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.cha {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    transform: translate(-50%, -50%) rotateX(35deg);
+    color: #000000;
+}
+
+/* 点击 */
+.butt {
+    width: 100%;
+    height: 70px;
+    /* background-color: rgba(211, 201, 201, 0.315); */
+    position: absolute;
+    bottom: 0;
+    /* box-shadow: 0px 0px 15px rgba(77, 75, 75, 0.808); */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#wxjm {
+    width: 100px;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    /*box-shadow: 0px 0px 15px rgba(2, 161, 16, 0.856);*/
+    background-color: rgba(5, 172, 47, 0.945);
+    position: absolute;
+    left: 45px;
+    top: 5px;
+
+}
+
+#zfbjm {
+    width: 100px;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    /*box-shadow: 0px 0px 15px rgba(16, 135, 190, 0.808);*/
+    background-color: rgb(34, 162, 221);
+    position: absolute;
+    right: 45px;
+    top: 5px;
+}
+
+.wxjm1,
+.zfbjm1 {
+    font-size: 25px;
+    color: rgb(255, 252, 252);
+    font-family:'Helvetica','Droidsansfallback','Heiti SC';
+}
+
+#wxjm:active {
+    background-color: #01a001;
+}
+
+#zfbjm:active {
+    background-color: #3380ad;
+}
+/*图层logo*/
+#tuchen{
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  z-index: 9;
+  top: 10vh;
+  left: 3px;
+}
+.t1{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: none;
+}
+
+/* 多球logo */
+
+/* 作者 */
+#zuoze:hover{
+    cursor: pointer;
+}
+#zuoze{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 9;
+    top: 2vh;
+    left: 4px;
+}
+.wi{
+    box-shadow: none;
+    border: none;
+   /* filter: brightness(0) invert(100%);*/
+    width: 100%;
+}
+
+/* 作者介绍 */
+.zejs{
+    width: 330px;
+    height: 440px;
+    background-color: #ece8e8;
+    position: fixed;
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 0px;
+    box-shadow: 0px 0px 15px rgb(209, 209, 209);
+    border-radius: 5px;
+    border: 1px solid rgba(43, 41, 41, 0.658);
+}
+/* 开始画面 */
+.zhuye{
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    opacity: 1;
+    transition: opacity 3s ease-out;
+}
+.zhuye1{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: none;
+    z-index: 99;
+    
+}
+.zi1{
+    color: #ffffff;
+    position: absolute;
+    font-size: 36px;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*版本详细*/
+#banben{
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    z-index: 8;
+    bottom: 45px;
+    color: #fff;
+}
+#banben::before{
+    content: '版本';
+    font-size: 12px;
+    color: #ffffff;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    font-family:'Helvetica','Droidsansfallback','Heiti SC';
+}
+#banben::after{
+    content: 'v1.1.2';
+    font-size: 10px;
+    color: rgba(223, 212, 212, 0.788);
+    position: absolute;
+    top: 20px;
+    left: 3px;
+    font-family:'Helvetica','Droidsansfallback','Heiti SC';
+}
+#banben:hover{
+     cursor: pointer;
+}
+/* 更新日志 */
+.babe{
+    display: none;
+    width: 300px;
+    height: 260px;
+    z-index: 20;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(250, 253, 208, 1);
+    /* -webkit-overflow-scrolling: touch; */
+    border-radius: 2px;
+    /*box-shadow: 0 0 2px 2px rgba(199, 198, 168, 0.712);*/ 
+    overflow: hidden;
+}
+.babe p{
+    font-size: 20px;
+    position: absolute;
+    top: -15px;
+    left: 15px;
+}
+.banben{
+    border-top: 1px solid #f4f4f4;
+    width: 100%;
+    height: 220px;
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+}
+.babe ul{
+    position: relative;
+    top: 0;
+    
+}
+#babe2{
+    /*display: none;*/
+    width: 25px;
+    height: 25px;
+    /* border: 2px solid #f3f3f3; */
+    position: absolute;
+    border-radius: 50%;
+    z-index: 21;
+    top: 5px;
+    right: 5px;
+}
+.hp{
+  position: absolute;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  filter: brightness(60) invert(100%);
+}
+
+#babe2:hover{
+    cursor: pointer;
+}
