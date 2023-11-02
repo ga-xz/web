@@ -34,9 +34,25 @@ viewer.scene.screenSpaceCameraController.minimumZoomDistance = 25;
 //限制地球缩小范围
 viewer.scene.screenSpaceCameraController.maximumZoomDistance = 22000000;
 // 禁用3D
-//viewer.scene.screenSpaceCameraController.enableTilt = false;
+viewer.scene.screenSpaceCameraController.enableTilt = false;
 //禁用放大和缩小
 //viewer.scene.screenSpaceCameraController.enableZoom = false;
+//显示白天太阳光影      
+//viewer.scene.globe.enableLighting = true;
+
+//大气层
+viewer.scene.skyAtmosphere.show = true;
+
+var gas = document.getElementById('gas');
+gas.addEventListener('change', function(){
+   if (gas.checked){
+     viewer.scene.skyAtmosphere.show = false;
+   }else{
+     viewer.scene.skyAtmosphere.show = true;
+   }
+  
+});
+    
 
 // 自定义一个图层
 var stare1 = new Cesium.UrlTemplateImageryProvider({
@@ -47,9 +63,14 @@ var stare1 = new Cesium.UrlTemplateImageryProvider({
 var stareq = viewer.imageryLayers.addImageryProvider(stare1);
   stareq.show = true;
 //mapbox图层
-  var map = new Cesium.UrlTemplateImageryProvider({
+  /*var map = new Cesium.UrlTemplateImageryProvider({
          url: 'http://ggmap01.bosim.top:8880/mapbox/{x}/{y}/{z}/'
-      });
+      });*/
+
+// 创建Mapbox卫星图瓦片服务提供程序
+var map = new Cesium.UrlTemplateImageryProvider({
+  url: 'http://mb.wuyeguo.net/earthdq/mb/{x}/{y}/{z}'
+});
  var map1 =  viewer.imageryLayers.addImageryProvider(map);
 map1.show = false;
  //Google卫星图
@@ -106,7 +127,6 @@ che.addEventListener('change', function() {
    //map1.show = false;
   // goog.show = true;
   // arcgis1.show = false;
-  
 //});
 
 arcgis.addEventListener('click', function(){
@@ -168,18 +188,20 @@ function resetCameraPosition() {
 var zoomInButton = document.getElementById('zoomIn');
 var zoomOutButton = document.getElementById('zoomOut');
 
-var zoomSpeed = 0.1; // 调整放大/缩小速度
+var zoomSpeed = 0.2; // 调整放大/缩小速度
 var minimumZoomDistance = 1000; // 最小高度
-var maximumZoomDistance = 24000000; // 最大高度
+var maximumZoomDistance = 22000000; // 最大高度
 
 function zoomIn() {
       var currentHeight = viewer.camera.positionCartographic.height;
         if (currentHeight / zoomSpeed > minimumZoomDistance) {
                 viewer.camera.zoomIn(currentHeight * zoomSpeed);
+
         }
 }
 
 function zoomOut() {
+
       var currentHeight = viewer.camera.positionCartographic.height;
         if (currentHeight * zoomSpeed < maximumZoomDistance) {
                 viewer.camera.zoomOut(currentHeight * zoomSpeed);
@@ -193,4 +215,7 @@ zoomInButton.addEventListener('click', function() {
 zoomOutButton.addEventListener('click', function() {
       zoomOut(); // 单击时触发缩小
 });
+
+
+
 

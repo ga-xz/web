@@ -1,5 +1,5 @@
 // 创建Cesium Viewer
-var viewer = new Cesium.Viewer('cesiumContainer', {
+var viewer = new Cesium.Viewer('cesiumContiner', {
   //添加地形
   terrain: Cesium.Terrain.fromWorldTerrain({
     // requestWaterMask: true,
@@ -158,3 +158,4 @@ viewer.canvas.addEventListener('click', function(e) {
         console.log('经度：' + longitude.toFixed(8) + '，纬度：' + latitude.toFixed(8));
     }
 }, false);
+

@@ -1,3 +1,4 @@
+
 /*var a = document.querySelector('#a');
 var b = document.querySelector('.duo');
 var c = document.querySelector('.duo1');
@@ -42,13 +43,17 @@ abou.addEventListener('click', function(){
 var b1 = document.getElementById("zuoze");
 var wi = document.querySelector(".wi");
 b1.addEventListener('click', function(){
-    var ti = document.querySelector(".tishi");
-    wi.src = "img/Wi1.svg";
+  
     setTimeout(function(){
-        $(ti).fadeIn(160);
-        $(tiok).fadeIn(160);
+        $('.Dodo').fadeIn(160);
+        //$(tiok).fadeIn(160);
         
       },200);
+});
+$('#m3h3').click(function(){
+    setTimeout(function(){
+      $('.Dodo').fadeOut(200);
+    });
 });
 
 //弹窗确定
@@ -56,12 +61,15 @@ var ti = document.querySelector(".tishi");
 var tiok = document.querySelector(".tiook");
 var ok = document.getElementById("ok1");
 ok.addEventListener("click", function(){
+  var co = document.querySelector('.cops1');
     setTimeout(function(){
         $(ti).fadeOut(160); 
         $(tiok).fadeOut(160);
         pen.style.filter = "brightness(0) invert(100%)";
-        wi.src = "img/Wi.svg";
-        m3.src = "img/M3.svg";
+        
+        kxW.style.border = 'none';
+        //wi.src = "img/Wi.svg";
+        //m3.src = "img/M3.svg";
       },200);
 });
 
@@ -115,26 +123,56 @@ m3gps.addEventListener("click", function(){
       },200);*/
       w++;
   if(w % 2 == 1){
-       // 获取当前位置
-navigator.geolocation.getCurrentPosition(function(position) {
-  var longitude = position.coords.longitude;
-  var latitude = position.coords.latitude;
-  
-  // 设置摄像机位置
-  viewer.camera.flyTo({
-    destination: Cesium.Cartesian3.fromDegrees(longitude, latitude, 1500)
+       // 获取用户地理位置
+/*navigator.geolocation.getCurrentPosition(function(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    // 创建用户位置的实体
+    var entity = viewer.entities.add({
+        name: 'User Location',
+        position: Cesium.Cartesian3.fromDegrees(longitude, latitude),
+        point: {
+            pixelSize: 10,
+            color: Cesium.Color.RED
+        }
+    });
   });
-});
-// 创建billboard并将其添加到实体上
 
-entity.billboard = new Cesium.BillboardGraphics({
-
+    // 将相机定位到用户位置
+    viewer.zoomTo(entity);*/
     
-  });
-// 将相机定位到实体位置
-viewer.zoomTo(entity);
-// 设置视图位置
-viewer.zoomTo(Cesium.Rectangle.fromDegrees(west, south, east, north,));
+    navigator.geolocation.getCurrentPosition(
+    function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        
+        viewer.entities.add({
+            position: Cesium.Cartesian3.fromDegrees(longitude, latitude),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.RED
+            },
+            label: {
+                text: 'My Location',
+                font: '14px sans-serif',
+                fillColor: Cesium.Color.RED,
+                style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                outlineWidth: 2,
+                verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                pixelOffset: new Cesium.Cartesian2(0, -9)
+            }
+        });
+        
+        // 将地图视图定位到用户位置
+        viewer.zoomTo(viewer.entities);
+    },
+    function(error) {
+        // 处理获取位置信息失败的情况
+        console.error(error);
+    }
+);
+  
 } else {
   m3.src = 'img/M3.svg';
   // 关闭定位
@@ -150,4 +188,72 @@ function disableLocation() {
 disableLocation();
 }
       
+});
+
+//十字中心
+var select = document.getElementById('select');
+select.addEventListener('change',function(){
+  var z6 = document.getElementById('Z6');
+  setTimeout(function(){
+  if (select.checked){
+    z6.style.display = 'none';
+  }else{
+     z6.style.display = 'block';
+   }
+  },300);
+  i--;
+});
+
+//罗盘
+var cps = document.getElementById('cops');
+  var co = document.querySelector('.cops1');
+ var com = document.getElementById('comps');
+var i = 0;
+cps.addEventListener('click', function(){
+ i++;
+ if (i % 2 == 1){
+
+        setTimeout(function(){
+              co.src = 'img/ca.svg';
+          com.style.transform = 'translateX(150px)';
+        }, 600);
+   } else {
+     
+     setTimeout(function(){
+           co.src = 'img/coA.svg';
+          com.style.transform = 'translateX(-115px)';
+        }, 200);
+   }
+});
+var coma = document.querySelector('#coma');
+coma.addEventListener('click', function(){
+       setTimeout(function(){
+           co.src = 'img/coA.svg';
+          com.style.transform = 'translateX(-115px)';
+        }, 200);
+    i--;
+});
+
+//2D/3D
+var wed = document.getElementById('wed');
+var wd = document.querySelector('.wd');
+wed.addEventListener('click', function(){
+  i++;
+  if(i % 2 == 1){
+    wd.src = 'img/2d.svg';
+    viewer.scene.screenSpaceCameraController.enableTilt = true;
+  } else {
+    wd.src = 'img/3d.svg';
+    viewer.scene.screenSpaceCameraController.enableTilt = false;
+  }
+});
+
+//罗盘图片
+var  kxW = document.getElementById('kxW');
+kxW.addEventListener('click',function(){
+    kxW.style.border = '1px solid #00B7FF';
+  setTimeout(function(){
+     $(ti).fadeIn(230);
+    $(tiok).fadeIn(230);
+  }, 200);
 });

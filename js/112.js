@@ -45,6 +45,7 @@ var guanbi = document.getElementById("guanbi");
 guanbi.addEventListener("click", function(){
     zhichi.style.backgroundColor = '#ffffff';
     $(boxv1).fadeOut(260);
+    $('.took').fadeOut(240);
 r--;
 });
 
@@ -63,4 +64,20 @@ wxjm.addEventListener("click", function(){
 zfbjm.addEventListener("click", function(){
     $(zfb).fadeIn(160);
     $(wx).fadeOut(160);
+});
+
+//支持按钮
+var nam = document.getElementById('namr');
+nam.addEventListener("click", function(){
+   setTimeout(function(){
+    $(boxv1).fadeIn(360);
+   }, 300);
+});
+var suprt = document.getElementById('suprt');
+
+suprt.addEventListener("click", function(){
+
+   setTimeout(function(){
+    $(boxv1).fadeIn(360);
+   }, 300);
 });
