@@ -11,12 +11,14 @@
   <script src="Cesium/Cesium.js"></script>
   <script src="jquery/jquery-3.7.1.min.js"></script>
   <link rel="stylesheet" href="Cesium/Widgets/widgets.css">
+  <link rel="stylesheet" href="css/111.css">
   <link rel="stylesheet" href="css/123.css">
   <link rel="stylesheet" href="css/222.css">
   <link rel="stylesheet" href="css/earths.css">
   <link rel="stylesheet" href="css/index.css">
 
   <style>
+   
     html,
     body {
       margin: 0;
@@ -54,29 +56,28 @@
     }
   }
 
-  .loading-spinner {
+  .loading {
     width: 35px;
     height: 35px;
-    border: 5px solid #003cff;
+    border: 5px solid #00EAFF;
     border-top-color: rgba(204, 204, 204, 0);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     position: fixed;
     z-index: 99999;
-    top: 55%;
+    /*top: 55%;
   left: 47%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);*/
 }
   </style>
 </head>
 
 <body>
 <!-- 开头图片 -->
-  <div class="zhuye" >
-    <img src="img/Rv.jpg" class="zhuye1">
-    <span class="zi1">Check Earth</span>
-    <div class="loading-spinner"></div>
-  </div> 
+ <div class="zhuye" >
+    <img src="img/7mO.9.png" class="zhuye1">
+    <div class="loading"></div>
+  </div>
   
   
 
@@ -85,6 +86,11 @@
     
     <!-- 左边导航栏 -->
     <div class="box">
+          <!-- 作者 -->
+        <div id="zuoze">
+         <!-- <div class="zuoze1"></div>-->
+         <img src="img/zuoze.jpg" class="wi"/>
+        </div>
       <!-- 图层 -->
       <div id="tuchen">
            <img src="img/T1.svg" class="t1">
@@ -94,27 +100,48 @@
       <div id="zhichi">
         <div class="zhic1">
           <div class="rmb">¥</div>
-          
         </div>
       </div>
-
+      
+      <!-- 罗盘 -->
+      <div id="cops">
+        <img src="img/coA.svg" class="cops1">
+      </div>
+      
       <!-- 多球模式 -->
         <div id="a">
           <div class="duo"></div>
           <div class="duo1"></div>
         </div>
         
-        <!-- 作者 -->
-        <div id="zuoze">
-         <!-- <div class="zuoze1"></div>-->
-         <img src="img/Wi.svg" class="wi"/>
-        </div>
+    
 
         <!-- 版本 -->
         <div id="banben">
         </div>
     </div>
+    
+      <!-- 罗盘 -->
+      <div id="comps">
+        <div id="coma">
+            <img src="img/Nz.png"  class="nz">
+        </div>
+        <!-- 罗盘图片 -->
+        <div id="kxW">
+          <img src="img/disc/kxW.png" class="kxw">
+           <span class="kx">罗盘</span>
+        </div>
+    
+      </div>
      
+       <!-- 十子 -->
+        <div id="Z6">
+           <img src="img/Zz6.png" class="z6">
+        </div>
+        <!-- 罗盘显示 -->
+        <div id="coz1">
+           <img src="img/disc/kxW.png" class="alt">
+        </div>
     <!-- 多球显示 -->
     <!-- <iframe src="earths.html" class="iframedq">
 
@@ -124,15 +151,27 @@
     <div id="cesiumContainer1"></div>
     <div id="cesiumContainer2"></div>
     </div>-->
-
-    <!-- 版本样式 -->
     
+    <!-- 版本样式 -->
     <div class="babe">
          <p>更新日志</p>
          <div id="babe2">
            <img src="img/hP.png" class="hp"/>
     </div>
        <div class="banben">
+         <ul>
+           <li>v1.1.3</li>
+           1.【新增】十字中心、大气层、罗盘、2D/3D
+           <br>
+           2.【优化】显示界面
+           <br>
+           3.【更换】我的logo，换成作者的也就是本网站开发者
+           <br>
+           4.【修复】一些已知bug
+           <br>
+           5.【更新】开头显示图片
+     2023/11/02  22:40:25
+         </ul>
          <ul>
            <li>v1.1.2</li>
            1.【新增】图源切换
@@ -226,10 +265,30 @@
       </div>
     </div>
 
-    <!-- 作者介绍 -->
-    <!-- <div class="zejs">
-
-    </div> -->
+    <!-- 个人账户 -->
+    <div class="Dodo">
+      <div class="toph3">
+        <h3 class="h3">作者介绍</h3>
+        <div id="m3h3">&times;</div>
+      </div>
+      <div class="hena">
+      <!-- 头像 -->
+       <img src="img/zuoze.jpg" class="head">
+      <!-- 名字 -->
+       <p class="name">格罗布奥特曼</p>
+       <!-- 支持 -->
+       <div id="namr">
+         <p class="nam">支持</p>
+       </div>
+       
+      </div>
+      <div class="naout">
+        看到这，大家可能会误会了头像和名字，这个是我个人的各个平台的头像和名字使用的。
+        QQ群: <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=7yVUBE0bmCYqxiZqpdCDvN5mv5dKc1wk&authKey=IsR3LUjrTGCS%2BHMc%2BgpHGON6KLuY4evOeSFLiBde8GKJBNfpe5ZxJMQ%2B89sm6xWH&noverify=0&group_code=242689100">242689100</a>
+        <br>
+        相关问题可以进群里面说一下
+      </div>
+    </div> 
 
     <!-- 提示框 -->
     <div class="tiook">
@@ -241,6 +300,31 @@
         </div>
      </div>
     </div>
+    
+    <!-- 提示弹框 -->
+      <div class="took">
+         <div class="titan">
+           <div class="tian">
+             <p class="t1">提示</p>
+           </div>
+         <div class="nei1">
+          
+            <ul class="ne">
+              因作者没有收入，本网站不支持后端服务
+              <br>
+              无法写注册登录等卡密会员功能，支持一下吧
+              <br>
+              想要什么样的功能都可以添加
+            </ul>
+            </div>
+          <div id="suprt">
+            <span class="sup1">支持</span>
+          </div>
+          <div id="conrm">
+          <span class="con1">确定</span>
+          </div>
+         </div>
+      </div>
 
     <!-- 界面 -->
     <div class="tool">
@@ -251,16 +335,7 @@
           <!-- <img src="img/fh.png">  -->
         </div>
       </div>
-      <!-- 路网 -->
-      <div class="luwang">
-        <!-- 开关 -->
-        <div>
-          <label for="switch">
-            <input type="checkbox" id="checkbox">
-          </label>
-        </div>
-        <p class="p">路网</p>
-      </div>
+    
       <!-- 影像切换 -->
       <div class="yinxi">
         图源
@@ -273,11 +348,12 @@
         </div>
         <br>
         <!-- Google卫星图 -->
-        <!--<div id="google">
+        <div id="google">
           <img src="img/wei/google.png" class="map">
           <span class="span">Google卫星图</span>
+          <img src="img/vip/1Gg.png" class="gg">
         </div>
-        <br>-->
+        <br>
         <!-- ArcGis卫星图 -->
         <div id="arcgis">
           <img src="img/wei/arcgis.png" class="map">
@@ -291,6 +367,38 @@
         </div>
         <br>
       </div>
+         <!-- 路网 -->
+      <div class="luwang">
+        <!-- 开关 -->
+        <div>
+          <label for="switch">
+            <input type="checkbox" id="checkbox">
+          </label>
+        </div>
+         <p class="p">路网</p>
+      </div>
+        <br>
+          <!-- 开关 -->
+      <div class="sec">
+        <div>
+          <label for="select" class="label">
+            <input type="checkbox" id="select">
+          </label>
+         </div>
+           <p class="p">十字</p>
+        </div>
+      <br>
+      <!-- 大气层 -->
+      <div class="sec">
+        <div>
+          <label for="gas" class="label">
+            <input type="checkbox" id="gas">
+          </label>
+         </div>
+           <p class="pp">大气层</p>
+        </div>
+      <br>
+      
     </div>
     <!-- 底部放大和缩小 -->
     <div class="dibu">
@@ -313,7 +421,10 @@
     <div id="m3gps">
         <img src="img/M3.svg" class="m3"/>
   </div>
-
+    <!-- 2D/3D -->
+     <div id="wed">
+       <img src="img/3d.svg" class="wd">
+     </div>
   </div>
 
   <script src="js/123.js"></script>
@@ -334,10 +445,12 @@
         window.event.returnValue = false;
       }
     }
+
+
     var zhu = document.querySelector(".zhuye");
     setTimeout(function(){
-        zhu.style.display = "none";
-    },5000);
+        $(zhu).fadeOut(650);
+    },4000);
   </script>
   <script src="js/earths.js"></script>
    <script src="js/earths1.js"></script>
