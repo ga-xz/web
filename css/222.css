@@ -18,12 +18,12 @@
     overflow: hidden;
   }
   .luwang{
-    position: absolute;
+    position: relative;
     border-bottom: 1px solid #656565;
-    border-top: 1px solid #656565;
     left: 5%;
     width: 90%;
-    top: 38vh;
+    top: 10px;
+    z-index: 8;
     height: 55px;
   }
   .p{
@@ -38,7 +38,8 @@
 .box1{
     width: 100%;
     height: 45px;
-    position: absolute;
+    position: relative;
+    top: -10px;
     border-bottom: 1px solid #332f2f;
     background-color: #2e2e2e;
 }
@@ -54,8 +55,8 @@
   height: 40px;
   /* background-color: #d36666; */
   position: absolute;
-  top: 3px;
-  left: 105px;
+  top: -2px;
+  right: 0px
 }
 #fh::before{
   content: '';
@@ -84,9 +85,9 @@
 label{
   overflow: hidden;
   position: absolute;
-  width: 44px;
-  height: 24px;
-  background-color: rgba(215, 215, 215, 0.5);
+  width: 40px;
+  height: 20px;
+  background-color: rgba(188, 188, 188, 0.32);
   border-radius: 16px;
   top: 19px;
   left: 81px;
@@ -100,8 +101,8 @@ label input::after{
   visibility: visible;
   content: '';
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 0;
+  left: 0;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -122,63 +123,9 @@ label input::before{
   transition: all 0.3s;
 }
 label input:checked::before{
-  background-color: #005AFF;
+  background-color: rgba(33, 124, 255, 0.86);
 }
 
-/*图层logo*/
-.tc2{
-  width: 35px;
-  height: 34px;
-  /* background-color: #07cc18; */
-  position: relative;
-  top: 15vh;
-  left: 3px;
-}
-.tc1:hover{
-  cursor: pointer;
-}
-.v2{
-  content: '';
-  width: 16px;
-  height: 16px;
-  /* background-color: #ffffff; */
-  border-bottom: 2px solid var(--border-bottom-color, #ffffff);
-  border-left: 2px solid var(--border-left-color, #ffffff);
-  position: absolute;
-  top: 13px;
-  left: 8px;
-  transform: rotate(3deg) rotateX(50deg) rotateZ(-47deg);
-}
-.tc2::before{
-  content: '';
-  width: 16px;
-  height: 16px;
-  /* background-color: #ffffff; */
-  border-bottom: 2px solid var(--border-bottom-color, #ffffff);
-  border-left: 2px solid var(--border-left-color, #ffffff);
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  transform: rotate(3deg) rotateX(50deg) rotateZ(-47deg);
-}
-/* .tuc{
-  position: absolute;
-  width: 30px;
-  top: 38px;
-  left: 2px;
-  color: #fff;
-  font-size: 15px;
-  font-family:'Helvetica','Droidsansfallback','Heiti SC';
-} */
-.v1{
-  width: 15px;
-  height: 15px;
-  border: 2px solid var(--border-color, #ffffff);
-  position: absolute;
-  top: 2px;
-  left: 8px;
-  transform: rotate(3deg) rotateX(50deg) rotateZ(-47deg);
-}
 .dibu{
   position: fixed;
   z-index: 9;
@@ -188,8 +135,8 @@ label input:checked::before{
 /* 放大 */
 #zoomIn{
   position: absolute;
-  bottom: 8px;
-  right: 200px;
+  bottom: 12px;
+  right: 90px;
   width: 30px;
   height: 30px;
   background-color: rgba(0, 0, 0, 0.719);
@@ -199,8 +146,8 @@ label input:checked::before{
 /* 缩小 */
 #zoomOut{
   position: absolute;
-  bottom: 8px;
-  right: 235px;
+  bottom: 12px;
+  right: 125px;
   width: 30px;
   height: 30px;
   background-color: rgba(0, 0, 0, 0.719);
@@ -244,8 +191,8 @@ button:hover{
 .custom{
   position: fixed;
   z-index: 9;
-  bottom: 6px;
-  right: 130px;
+  bottom: 15px;
+  right: 19px;
   width: 42px;
   height: 42px;
   background-color: rgba(0, 0, 0, 0.719);
@@ -268,8 +215,8 @@ button:hover{
 #pegman{
   position: fixed;
   z-index: 9;
-  bottom: 60px;
-  right: 100px;
+  bottom: 70px;
+  right: 15px;
   width: 45px;
   height: 45px;
   background-color: rgba(0, 0, 0, 0.719);
@@ -288,6 +235,49 @@ button:hover{
 }
 #pegman:hover{
   cursor: pointer;
+}
+/*2D/3D*/
+#wed{
+  position: fixed;
+  z-index: 9;
+  bottom: 130px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0.719);
+  border-radius: 50%;
+  }
+  .wd{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: brightness(0) invert(100%);
+  }
+  /*定位*/
+#m3gps{
+  position: fixed;
+  z-index: 9;
+  bottom: 190px;
+  right: 15px;
+  width: 42px;
+  height: 42px;
+  background-color: rgba(0, 0, 0, 0.719);
+  border-radius: 50%;
+    }
+    
+.m3{
+    box-shadow: none;
+    border: none;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 /* 多球显示 */
 .iframedq{

@@ -3,7 +3,7 @@
   height: 170px;
   background-color: rgba(62, 62, 62, 1);
   position: relative;
-  top: 13vh;
+  top: 10px;
   left: 2.5%;
   z-index: 7;
   overflow-y: scroll;
@@ -32,9 +32,10 @@
   height: 35px;
   font-size: 20px;
   color: #fff;
-  position: absolute;
-  top: 8vh;
+  position: relative;
+  top: 5px;
   left: 2.5%;
+  z-index: 8;
 }
 /*中科星图*/
 #star{
@@ -55,6 +56,15 @@
   height: 40px;
   border-radius: 5px;
   background-color: rgba(24, 24, 26, 0.97);
+}
+.gg{
+  width: 22px;
+  height: 14px;
+  border: none;
+  border-radius: none;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 #arcgis{
